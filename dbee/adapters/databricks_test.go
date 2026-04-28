@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	_ "github.com/databricks/databricks-sql-go"
-	"github.com/kndndrj/nvim-dbee/dbee/core"
+	"github.com/KeveenMenezes/DbeeLazy/dbee/core"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

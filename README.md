@@ -2,18 +2,19 @@
 
 <!-- This tag controlls what's ignored by the docgen workflow. -->
 
-![Linting Status](https://img.shields.io/github/actions/workflow/status/kndndrj/nvim-dbee/lint.yml?label=linting&style=for-the-badge)
-![Docgen Status](https://img.shields.io/github/actions/workflow/status/kndndrj/nvim-dbee/docgen.yml?label=docgen&logo=neovim&logoColor=white&style=for-the-badge)
+![Linting Status](https://img.shields.io/github/actions/workflow/status/KeveenMenezes/DbeeLazy/lint.yml?label=linting&style=for-the-badge)
+![Docgen Status](https://img.shields.io/github/actions/workflow/status/KeveenMenezes/DbeeLazy/docgen.yml?label=docgen&logo=neovim&logoColor=white&style=for-the-badge)
 ![Backend](https://img.shields.io/badge/go-backend-lightblue?style=for-the-badge&logo=go&logoColor=white)
 ![Frontend](https://img.shields.io/badge/lua-frontend-blue?style=for-the-badge&logo=lua&logoColor=white)
-
-[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png)](https://www.buymeacoffee.com/kndndrj)
+![License](https://img.shields.io/badge/license-GPL--3.0-green?style=for-the-badge)
 
 <!-- DOCGEN_IGNORE_END -->
 
-# Neovim DBee
+# DbeeLazy
 
-**Database Client for NeoVim!**
+> A fork of [nvim-dbee](https://github.com/kndndrj/nvim-dbee) with a lazydocker-style floating UX.
+
+**Database Client for NeoVim — floating-first, like lazygit and lazydocker!**
 
 **Execute Your Favourite Queries From the Comfort of Your Editor!**
 
@@ -25,7 +26,7 @@
 
 **Get Results FAST With Under-the-hood Iterator!**
 
-**Bees Love It!**
+**Opens as a floating panel with a single keymap — just like lazydocker!**
 
 ***Alpha Software - Expect Breaking Changes!***
 
@@ -37,42 +38,49 @@
 
 <!-- DOCGEN_IGNORE_START -->
 
-### Video Introduction
+### Video Introduction (original nvim-dbee)
 
-If you prefer to watch a video than to browse through docs, I made a video, which you can watch
-[here](https://youtu.be/MDlYsGbKJyQ)
+If you prefer to watch a video than to browse through docs, a video introduction for the original
+nvim-dbee is available [here](https://youtu.be/MDlYsGbKJyQ).
 
 <!-- DOCGEN_IGNORE_END -->
+
+## What's Different from nvim-dbee
+
+DbeeLazy is a fork of [nvim-dbee](https://github.com/kndndrj/nvim-dbee) with opinionated defaults
+inspired by [lazygit](https://github.com/jesseduffield/lazygit) and
+[lazydocker](https://github.com/jesseduffield/lazydocker):
+
+| Feature | nvim-dbee | DbeeLazy |
+|---|---|---|
+| Default layout | Split panels | **Floating panel (88% width)** |
+| Float border | None | **Rounded** |
+| Results page size | 100 rows | **20 rows** |
+| Toggle behaviour | Simple open/close | **Layout-aware switch** |
+| Result rendering | Sync on `retrieving` | **Async on `archived` (safer)** |
+| Bufferline integration | Manual | **Built-in helper module** |
+| Autosave guard | Manual | **Built-in helper module** |
+
+### New API
+
+```lua
+-- Toggle with optional layout override (closes any other open layout first)
+require("dbee").toggle(optional_layout)
+
+-- Optional integrations (not loaded automatically)
+require("dbee.integrations.bufferline")  -- bufferline tab name formatter
+require("dbee.integrations.autosave")    -- autosave guard helper
+```
 
 ## Installation
 
 **requires nvim>=0.10**
 
-- packer.nvim:
-
-  ```lua
-  use {
-    "kndndrj/nvim-dbee",
-    requires = {
-      "MunifTanjim/nui.nvim",
-    },
-    run = function()
-      -- Install tries to automatically detect the install method.
-      -- if it fails, try calling it with one of these parameters:
-      --    "curl", "wget", "bitsadmin", "go"
-      require("dbee").install()
-    end,
-    config = function()
-      require("dbee").setup(--[[optional config]])
-    end
-  }
-  ```
-
-- lazy.nvim:
+- lazy.nvim (recommended):
 
   ```lua
   {
-    "kndndrj/nvim-dbee",
+    "KeveenMenezes/DbeeLazy",
     dependencies = {
       "MunifTanjim/nui.nvim",
     },
@@ -82,10 +90,44 @@ If you prefer to watch a video than to browse through docs, I made a video, whic
       --    "curl", "wget", "bitsadmin", "go"
       require("dbee").install()
     end,
+    keys = {
+      { "<leader>Du", function() require("dbee").toggle() end, desc = "Dbee UI" },
+    },
     config = function()
       require("dbee").setup(--[[optional config]])
     end,
   },
+  ```
+
+- lazy.nvim (with optional bufferline integration):
+
+  ```lua
+  -- in your bufferline plugin spec:
+  {
+    "akinsho/bufferline.nvim",
+    opts = function(_, opts)
+      local dbee_bufferline = require("dbee.integrations.bufferline")
+      opts.options = opts.options or {}
+      opts.options.name_formatter = dbee_bufferline.name_formatter(opts.options.name_formatter)
+    end,
+  },
+  ```
+
+- packer.nvim:
+
+  ```lua
+  use {
+    "KeveenMenezes/DbeeLazy",
+    requires = {
+      "MunifTanjim/nui.nvim",
+    },
+    run = function()
+      require("dbee").install()
+    end,
+    config = function()
+      require("dbee").setup(--[[optional config]])
+    end
+  }
   ```
 
 ### Platform Support
@@ -137,13 +179,13 @@ have a few options:
   [install manifest](lua/dbee/install/__manifest.lua)
 - `go install` (the install location will vary depending on your local go configuration):
   ```sh
-  go install github.com/kndndrj/nvim-dbee/dbee@<version>
+  go install github.com/KeveenMenezes/DbeeLazy/dbee@<version>
   ```
 - Clone and build
   ```sh
   # Clone the repository and cd into the "go subfolder"
-  git clone <this_repo>
-  cd <this_repo>/dbee
+  git clone https://github.com/KeveenMenezes/DbeeLazy
+  cd DbeeLazy/dbee
   # Build the binary (optional output path)
   go build [-o ~/.local/share/nvim/dbee/bin/dbee]
   ```

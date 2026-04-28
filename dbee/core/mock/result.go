@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/kndndrj/nvim-dbee/dbee/core"
+	"github.com/KeveenMenezes/DbeeLazy/dbee/core"
 )
 
 func newNext(rows []core.Row) (func() (core.Row, error), func() bool) {

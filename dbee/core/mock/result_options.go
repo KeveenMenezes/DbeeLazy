@@ -3,7 +3,7 @@ package mock
 import (
 	"time"
 
-	"github.com/kndndrj/nvim-dbee/dbee/core"
+	"github.com/KeveenMenezes/DbeeLazy/dbee/core"
 )
 
 type resultStreamConfig struct {

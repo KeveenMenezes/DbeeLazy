@@ -3,7 +3,7 @@ package handler
 import (
 	"github.com/neovim/go-client/msgpack"
 
-	"github.com/kndndrj/nvim-dbee/dbee/core"
+	"github.com/KeveenMenezes/DbeeLazy/dbee/core"
 )
 
 // callWrap is a wrapper around core.Call with msgpack marshaling capabilities

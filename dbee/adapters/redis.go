@@ -6,7 +6,7 @@ import (
 
 	"github.com/redis/go-redis/v9"
 
-	"github.com/kndndrj/nvim-dbee/dbee/core"
+	"github.com/KeveenMenezes/DbeeLazy/dbee/core"
 )
 
 // Register client

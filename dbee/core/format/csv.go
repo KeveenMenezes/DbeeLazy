@@ -5,7 +5,7 @@ import (
 	"encoding/csv"
 	"fmt"
 
-	"github.com/kndndrj/nvim-dbee/dbee/core"
+	"github.com/KeveenMenezes/DbeeLazy/dbee/core"
 )
 
 var _ core.Formatter = (*CSV)(nil)

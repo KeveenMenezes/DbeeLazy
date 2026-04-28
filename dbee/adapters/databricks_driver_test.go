@@ -8,8 +8,8 @@ import (
 	"testing"
 
 	"github.com/DATA-DOG/go-sqlmock"
-	"github.com/kndndrj/nvim-dbee/dbee/core"
-	"github.com/kndndrj/nvim-dbee/dbee/core/builders"
+	"github.com/KeveenMenezes/DbeeLazy/dbee/core"
+	"github.com/KeveenMenezes/DbeeLazy/dbee/core/builders"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

@@ -11,10 +11,10 @@ import (
 
 	"github.com/neovim/go-client/nvim"
 
-	"github.com/kndndrj/nvim-dbee/dbee/adapters"
-	"github.com/kndndrj/nvim-dbee/dbee/core"
-	"github.com/kndndrj/nvim-dbee/dbee/core/format"
-	"github.com/kndndrj/nvim-dbee/dbee/plugin"
+	"github.com/KeveenMenezes/DbeeLazy/dbee/adapters"
+	"github.com/KeveenMenezes/DbeeLazy/dbee/core"
+	"github.com/KeveenMenezes/DbeeLazy/dbee/core/format"
+	"github.com/KeveenMenezes/DbeeLazy/dbee/plugin"
 )
 
 const callLogFileName = "/tmp/dbee-calllog.json"

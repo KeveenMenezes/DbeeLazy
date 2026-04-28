@@ -5,8 +5,8 @@ import (
 
 	"github.com/neovim/go-client/nvim"
 
-	"github.com/kndndrj/nvim-dbee/dbee/core"
-	"github.com/kndndrj/nvim-dbee/dbee/plugin"
+	"github.com/KeveenMenezes/DbeeLazy/dbee/core"
+	"github.com/KeveenMenezes/DbeeLazy/dbee/plugin"
 )
 
 type eventBus struct {

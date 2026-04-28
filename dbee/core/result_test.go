@@ -6,8 +6,8 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/kndndrj/nvim-dbee/dbee/core"
-	"github.com/kndndrj/nvim-dbee/dbee/core/mock"
+	"github.com/KeveenMenezes/DbeeLazy/dbee/core"
+	"github.com/KeveenMenezes/DbeeLazy/dbee/core/mock"
 )
 
 func TestResult(t *testing.T) {

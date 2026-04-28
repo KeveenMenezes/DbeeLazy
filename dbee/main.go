@@ -9,8 +9,8 @@ import (
 
 	"github.com/neovim/go-client/nvim"
 
-	"github.com/kndndrj/nvim-dbee/dbee/handler"
-	"github.com/kndndrj/nvim-dbee/dbee/plugin"
+	"github.com/KeveenMenezes/DbeeLazy/dbee/handler"
+	"github.com/KeveenMenezes/DbeeLazy/dbee/plugin"
 )
 
 func main() {

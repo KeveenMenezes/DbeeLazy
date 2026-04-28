@@ -8,8 +8,8 @@ import (
 	"log"
 	"testing"
 
-	"github.com/kndndrj/nvim-dbee/dbee/core"
-	th "github.com/kndndrj/nvim-dbee/dbee/tests/testhelpers"
+	"github.com/KeveenMenezes/DbeeLazy/dbee/core"
+	th "github.com/KeveenMenezes/DbeeLazy/dbee/tests/testhelpers"
 	"github.com/stretchr/testify/assert"
 	tsuite "github.com/stretchr/testify/suite"
 	tc "github.com/testcontainers/testcontainers-go"

@@ -1,4 +1,4 @@
-module github.com/kndndrj/nvim-dbee/dbee
+module github.com/KeveenMenezes/DbeeLazy/dbee
 
 go 1.23
 

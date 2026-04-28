@@ -85,12 +85,22 @@ function ResultUI:on_call_state_changed(data)
   self.current_call = call
 
   -- perform action based on the state
-  if call.state == "executing" then
+  if call.state == "executing" or call.state == "retrieving" then
+    -- show progress while data is still being fetched
     self.stop_progress()
     self:display_progress()
-  elseif call.state == "retrieving" then
+  elseif call.state == "archived" then
+    -- data is fully stored; schedule render to avoid blocking the event loop
     self.stop_progress()
-    self:page_current()
+    vim.schedule(function()
+      if not self.current_call or self.current_call.id ~= call.id then
+        return
+      end
+      local ok = pcall(self.page_current, self)
+      if not ok then
+        self:set_default_result_window()
+      end
+    end)
   elseif call.state == "executing_failed" or call.state == "retrieving_failed" or call.state == "canceled" then
     self.stop_progress()
     self:display_status()

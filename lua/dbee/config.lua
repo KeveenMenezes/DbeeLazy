@@ -61,7 +61,7 @@ config.default = {
     -- },
   },
   -- options passed to floating windows - :h nvim_open_win()
-  float_options = {},
+  float_options = { border = "rounded" },
 
   -- drawer window config
   drawer = {
@@ -221,7 +221,7 @@ config.default = {
     buffer_options = {},
 
     -- number of rows in the results set to display per page
-    page_size = 100,
+    page_size = 20,
 
     -- whether to focus the result window after a query
     focus_result = true,
@@ -335,8 +335,8 @@ config.default = {
     },
   },
 
-  -- window layout
-  window_layout = require("dbee.layouts").Default:new(),
+  -- window layout (default: floating panel at 88% of screen width, lazydocker-style)
+  window_layout = require("dbee.layouts").Floating:new({ width_ratio = 0.88 }),
 }
 -- DOCGEN_END
 

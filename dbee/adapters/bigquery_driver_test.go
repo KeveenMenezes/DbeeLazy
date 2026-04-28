@@ -6,7 +6,7 @@ import (
 	"testing"
 
 	"cloud.google.com/go/bigquery"
-	"github.com/kndndrj/nvim-dbee/dbee/core"
+	"github.com/KeveenMenezes/DbeeLazy/dbee/core"
 	"github.com/stretchr/testify/assert"
 )
 

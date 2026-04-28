@@ -30,8 +30,21 @@ function dbee.setup(cfg)
 end
 
 ---Toggle dbee UI.
-function dbee.toggle()
-  if api.current_config().window_layout:is_open() then
+---If a different layout is currently open, closes it before opening the target layout.
+---@param layout? Layout optional layout to toggle; defaults to the configured window_layout
+function dbee.toggle(layout)
+  local current_config = api.current_config()
+  local target_layout = layout or current_config.window_layout
+  local current_layout = current_config.window_layout
+
+  -- close the currently active layout if it differs from the target
+  if current_layout ~= target_layout and current_layout and current_layout.is_open and current_layout:is_open() then
+    current_layout:close()
+  end
+
+  current_config.window_layout = target_layout
+
+  if target_layout:is_open() then
     dbee.close()
   else
     dbee.open()

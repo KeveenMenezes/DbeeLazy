@@ -8,8 +8,8 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/kndndrj/nvim-dbee/dbee/core"
-	"github.com/kndndrj/nvim-dbee/dbee/core/builders"
+	"github.com/KeveenMenezes/DbeeLazy/dbee/core"
+	"github.com/KeveenMenezes/DbeeLazy/dbee/core/builders"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 )

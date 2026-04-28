@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/kndndrj/nvim-dbee/dbee/core"
+	"github.com/KeveenMenezes/DbeeLazy/dbee/core"
 )
 
 func (h *Handler) storeCallLog() error {

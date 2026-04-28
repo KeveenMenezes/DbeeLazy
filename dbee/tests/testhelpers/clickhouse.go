@@ -3,8 +3,8 @@ package testhelpers
 import (
 	"context"
 
-	"github.com/kndndrj/nvim-dbee/dbee/adapters"
-	"github.com/kndndrj/nvim-dbee/dbee/core"
+	"github.com/KeveenMenezes/DbeeLazy/dbee/adapters"
+	"github.com/KeveenMenezes/DbeeLazy/dbee/core"
 	tc "github.com/testcontainers/testcontainers-go"
 	"github.com/testcontainers/testcontainers-go/modules/clickhouse"
 )

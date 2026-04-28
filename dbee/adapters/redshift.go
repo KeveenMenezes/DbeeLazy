@@ -7,8 +7,8 @@ import (
 	"net/url"
 	"time"
 
-	"github.com/kndndrj/nvim-dbee/dbee/core"
-	"github.com/kndndrj/nvim-dbee/dbee/core/builders"
+	"github.com/KeveenMenezes/DbeeLazy/dbee/core"
+	"github.com/KeveenMenezes/DbeeLazy/dbee/core/builders"
 )
 
 // init registers the RedshiftClient to the store,

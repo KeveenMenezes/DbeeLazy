@@ -4,7 +4,7 @@ import (
 	"errors"
 	"sync"
 
-	"github.com/kndndrj/nvim-dbee/dbee/core"
+	"github.com/KeveenMenezes/DbeeLazy/dbee/core"
 )
 
 var _ core.ResultStream = (*ResultStream)(nil)
